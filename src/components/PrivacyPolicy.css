@@ -1,0 +1,110 @@
+/* ===== PRIVACY POLICY MODAL ===== */
+.privacy-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: privacy-fade-in 0.3s ease;
+}
+
+@keyframes privacy-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.privacy-modal {
+  background: var(--dark-800, #111118);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 700px;
+  max-height: 80vh;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: privacy-slide-up 0.3s ease;
+}
+
+@keyframes privacy-slide-up {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.privacy-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: var(--dark-400, #3a3a4a);
+  color: var(--white, #fff);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.privacy-close:hover {
+  background: var(--amber-600, #f59e0b);
+  transform: scale(1.1);
+}
+
+.privacy-content {
+  padding: 40px;
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+.privacy-content h2 {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: 1.8rem;
+  color: var(--white, #fff);
+  margin-bottom: 8px;
+}
+
+.privacy-content p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.privacy-content h3 {
+  font-size: 1.1rem;
+  color: var(--amber-400, #ffca28);
+  margin-top: 24px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.privacy-content ul {
+  list-style: disc;
+  padding-left: 24px;
+  margin-bottom: 16px;
+}
+
+.privacy-content li {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.8;
+  margin-bottom: 6px;
+}
+
+.privacy-content strong {
+  color: var(--white, #fff);
+}
+
+@media (max-width: 600px) {
+  .privacy-content {
+    padding: 24px;
+  }
+  .privacy-content h2 {
+    font-size: 1.4rem;
+  }
+}

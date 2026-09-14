@@ -1,0 +1,24 @@
+services:
+  amanecer-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: amanecer-transportation:latest
+    container_name: amanecer-app
+    restart: unless-stopped
+    environment:
+      PORT: "3001"
+    volumes:
+      # Configuracion real (contiene app passwords). No se incluye en la imagen.
+      - ./server/emailConfig.js:/app/server/emailConfig.js:ro
+    ports:
+      # Solo local del VPS; Nginx Proxy Manager accede por la red interna
+      - "127.0.0.1:3001:3001"
+    networks:
+      - npm-network
+
+networks:
+  # Red compartida con Nginx Proxy Manager. Creala antes con:
+  #   docker network create npm-network
+  npm-network:
+    external: true

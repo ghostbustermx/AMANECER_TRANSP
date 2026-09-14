@@ -1,0 +1,183 @@
+/* ===== RATES SECTION ===== */
+.rates {
+  padding: var(--section-padding);
+  background: var(--off-white);
+}
+
+.rates__header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.rates__header .section-subtitle {
+  margin: 0 auto;
+}
+
+.rates__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+/* Rate Card */
+.rate-card {
+  position: relative;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--warm-gray);
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+}
+
+.rate-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.rate-card--popular {
+  border-color: var(--amber-400);
+  box-shadow: var(--shadow-amber);
+}
+
+.rate-card--popular:hover {
+  box-shadow: var(--shadow-amber-lg);
+}
+
+.rate-card__badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--gradient-amber);
+  color: var(--dark-900);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 2;
+}
+
+.rate-card__image {
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f0f0f0 0%, #e8e4df 100%);
+}
+
+.rate-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.rate-card:hover .rate-card__image img {
+  transform: scale(1.05);
+}
+
+.rate-card__content {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.rate-card__name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.rate-card__passengers {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.rate-card__price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--warm-gray);
+}
+
+.rate-card__price-from {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.rate-card__price-amount {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--amber-700);
+  line-height: 1;
+}
+
+.rate-card__price-unit {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.rate-card__price-note {
+  flex-basis: 100%;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.rate-card__desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.rate-card__features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+.rate-card__features li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.rate-card__check {
+  color: var(--amber-600);
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+.rate-card__btn {
+  width: 100%;
+  margin-top: auto;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 960px) {
+  .rates__grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}

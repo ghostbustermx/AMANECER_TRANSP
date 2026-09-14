@@ -1,0 +1,12 @@
+node_modules
+dist
+dist-ssr
+.git
+.gitignore
+*.log
+*.local
+.DS_Store
+
+# Configuracion de correo (contiene app password, NO debe ir en la imagen)
+server/emailConfig.js
+server/emailConfig.example.js
