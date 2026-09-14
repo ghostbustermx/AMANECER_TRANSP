@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FiMapPin, FiCalendar, FiUsers, FiMail, FiArrowRight } from 'react-icons/fi';
+import { FaAward, FaCheckCircle } from 'react-icons/fa';
 import './Hero.css';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -12,6 +13,20 @@ export default function Hero() {
   const [email, setEmail] = useState('');
   const [sending, setSending] = useState(false);
   const [status, setStatus] = useState({ type: '', message: '' });
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const hero = document.getElementById('hero');
+    if (!hero) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.1 }
+    );
+
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -91,6 +106,28 @@ export default function Hero() {
             </a>
           </div>
         </div>
+
+        {isVisible && (
+          <a
+            className="founder-badge"
+            href="https://sayulitatravel.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Founding client: Sayulita Travel"
+          >
+            <span className="founder-badge__medal">
+              <FaAward />
+            </span>
+            <span className="founder-badge__text">
+              <span className="founder-badge__kicker">Founding Client</span>
+              <span className="founder-badge__brand">Sayulita Travel</span>
+              <span className="founder-badge__verified">
+                <FaCheckCircle className="founder-badge__verified-icon" />
+                Verified Client
+              </span>
+            </span>
+          </a>
+        )}
       </div>
 
       {/* Booking Bar */}

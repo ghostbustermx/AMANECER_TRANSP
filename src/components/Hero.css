@@ -102,6 +102,94 @@
   flex-wrap: wrap;
 }
 
+/* ===== FOUNDING CLIENT MEDALLION ===== */
+.founder-badge {
+  position: fixed;
+  top: calc(55% - 190px);
+  right: 160px;
+  z-index: 997;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 18px 10px 10px;
+  background: rgba(10, 10, 15, 0.85);
+  border: 1px solid rgba(245, 166, 35, 0.3);
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  animation: fadeInUp 1s ease-out;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.founder-badge:hover {
+  border-color: rgba(245, 166, 35, 0.65);
+  box-shadow: 0 8px 34px rgba(0, 0, 0, 0.45);
+}
+
+.founder-badge__medal {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--gradient-amber);
+  color: var(--dark-900);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  border: 3px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.founder-badge__medal::after {
+  content: '';
+  position: absolute;
+  inset: -9px;
+  border-radius: 50%;
+  border: 1px dashed rgba(245, 166, 35, 0.55);
+}
+
+.founder-badge__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.founder-badge__kicker {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.founder-badge__brand {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--amber-400);
+}
+
+.founder-badge__verified {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 3px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--amber-400);
+}
+
+.founder-badge__verified-icon {
+  font-size: 0.8rem;
+  color: var(--amber-400);
+}
+
 /* ===== BOOKING BAR ===== */
 .booking-bar {
   position: relative;
@@ -262,6 +350,57 @@
   .booking-bar__btn {
     width: 100%;
     flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .founder-badge {
+    position: static;
+    top: auto;
+    right: auto;
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+    order: -1;
+    gap: 10px;
+    padding: 8px 14px 8px 8px;
+    margin: 0 0 16px;
+    z-index: 2;
+  }
+
+  .founder-badge__medal {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+    border-width: 2px;
+  }
+
+  .founder-badge__medal::after {
+    inset: -6px;
+  }
+
+  .founder-badge__kicker {
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+  }
+
+  .founder-badge__brand {
+    font-size: 0.9rem;
+  }
+
+  .founder-badge__verified {
+    gap: 4px;
+    font-size: 0.58rem;
+    letter-spacing: 1px;
+  }
+
+  .founder-badge__verified-icon {
+    font-size: 0.7rem;
   }
 }
 
