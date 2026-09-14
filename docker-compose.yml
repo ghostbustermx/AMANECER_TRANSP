@@ -15,10 +15,13 @@ services:
       # Solo local del VPS; Nginx Proxy Manager accede por la red interna
       - "127.0.0.1:3001:3001"
     networks:
+      - app-network
       - npm-network
 
 networks:
   # Red compartida con Nginx Proxy Manager. Creala antes con:
   #   docker network create npm-network
+  app-network:
+    driver: bridge
   npm-network:
     external: true
