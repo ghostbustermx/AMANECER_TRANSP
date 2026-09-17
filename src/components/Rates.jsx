@@ -26,7 +26,7 @@ const vehicles = [
     price: '$2,000',
     unit: 'mxn',
     note: '(Sayulita - Airport, One Way)',
-    image: '/images/VAN-1.webp',
+    image: '/images/EXPRESS_VAN.webp',
     popular: true,
     features: [
       'Spacious for groups',
@@ -42,7 +42,7 @@ const vehicles = [
     price: '$3,000',
     unit: 'mxn',
     note: '(Sayulita - Airport, One Way)',
-    image: '/images/EXPRESS_VAN.webp',
+    image: '/images/VAN-1.webp',
     popular: false,
     features: [
       'Keep your whole group together',
