@@ -84,19 +84,6 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const hostingerTransporter = nodemailer.createTransport({
-  host: emailConfig.hostinger?.host,
-  port: emailConfig.hostinger?.port,
-  secure: emailConfig.hostinger?.secure,
-  tls: {
-    rejectUnauthorized: emailConfig.hostinger?.rejectUnauthorized ?? true,
-  },
-  auth: {
-    user: emailConfig.hostinger?.user,
-    pass: emailConfig.hostinger?.pass,
-  },
-});
-
 const appPasswordConfigured = (emailConfig.smtp?.appPassword || '')
   .replace(/\s/g, '')
   .length > 0;
@@ -104,7 +91,6 @@ const appPasswordConfigured = (emailConfig.smtp?.appPassword || '')
 async function sendBookingMail({ subject, html, text, replyTo }) {
   const recipients = emailConfig.to?.recipients || [];
   const hidden = emailConfig.to?.bcc || [];
-  const mode = emailConfig.to?.deliverBcc || 'separate';
   const base = {
     from: `"${emailConfig.from?.name}" <${emailConfig.from?.alias}>`,
     replyTo: replyTo || emailConfig.from?.replyTo || emailConfig.smtp?.user,
@@ -116,23 +102,10 @@ async function sendBookingMail({ subject, html, text, replyTo }) {
   await transporter.sendMail({
     ...base,
     to: recipients,
-    ...(mode === 'bcc' ? { bcc: hidden } : {}),
   });
 
-  if (mode === 'hostinger') {
-    for (const recipient of hidden) {
-      await hostingerTransporter.sendMail({
-        from: `"${emailConfig.hostinger?.fromName || emailConfig.from?.name}" <${emailConfig.hostinger?.from || emailConfig.hostinger?.user}>`,
-        to: recipient,
-        subject,
-        text,
-        html,
-      });
-    }
-  } else if (mode === 'separate') {
-    for (const recipient of hidden) {
-      await transporter.sendMail({ ...base, to: recipient });
-    }
+  for (const recipient of hidden) {
+    await transporter.sendMail({ ...base, to: recipient });
   }
 }
 

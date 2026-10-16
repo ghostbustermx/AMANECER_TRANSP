@@ -36,27 +36,9 @@ export default {
   // A quien llegan las solicitudes de reserva
   to: {
     recipients: ['keconecte@gmail.com'],
-    // Copia oculta (CCO / BCC)
+    // Copia oculta (CCO / BCC): cada correo recibe una copia enviada
+    // desde la misma cuenta Gmail (smtp) con su app password.
     bcc: ['webmaster@venadoblanco.com'],
-    // Como se entrega la copia oculta:
-    //   'hostinger' -> via smtp.hostinger.com con el buzón webmaster@venadoblanco.com
-    //                   (envio de su propio dominio a su propio dominio: SIEMPRE llega)
-    //   'separate'  -> mensaje aparte directo a cada correo de bcc, por el mismo relay de Gmail
-    //   'bcc'       -> CCO real en el mismo mensaje (Gmail lo descarta si el From
-    //                  es un dominio externo sin DKIM alineado)
-    deliverBcc: 'hostinger',
-  },
-
-  // Transporte de la copia oculta via Hostinger (solo se usa si deliverBcc = 'hostinger')
-  hostinger: {
-    host: 'smtp.hostinger.com',
-    port: 465,
-    secure: true,
-    user: 'webmaster@venadoblanco.com',
-    pass: 'XXXX XXXX XXXX XXXX',
-    from: 'webmaster@venadoblanco.com',
-    fromName: 'Amanecer Transportation',
-    rejectUnauthorized: false,
   },
 
   // Asunto del correo de reserva
