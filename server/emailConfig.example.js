@@ -71,7 +71,6 @@ export default {
       'http://localhost:4173',
       'https://amanecertransportation.com',
       'https://www.amanecertransportation.com',
-      'https://amanecer.sayulitatravel.com',
     ],
   },
 };

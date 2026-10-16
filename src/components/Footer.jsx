@@ -91,7 +91,6 @@ export default function Footer({ onPrivacyClick, onTermsClick }) {
         <div className="footer__bottom">
           <p>
             &copy; {new Date().getFullYear()} Amanecer Transportation. All rights reserved.
-            Powered by <a href="https://sayulitatravel.com/" target="_blank" rel="noopener noreferrer" className="footer__powered-link">Sayulita Travel</a>.
           </p>
           <div className="footer__bottom-links">
             <a href="#" onClick={(e) => { e.preventDefault(); onPrivacyClick(); }}>Privacy Policy</a>

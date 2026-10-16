@@ -147,17 +147,6 @@
   color: var(--amber-400);
 }
 
-.footer__powered-link {
-  color: var(--amber-400);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: color var(--transition-fast);
-}
-
-.footer__powered-link:hover {
-  color: var(--amber-300);
-}
-
 /* ===== RESPONSIVE ===== */
 @media (max-width: 960px) {
   .footer__grid {

@@ -5,7 +5,7 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   plugins: [react()],
   server: {
-    allowedHosts: ['amanecer.sayulitatravel.com'],
+    allowedHosts: ['amanecertransportation.com', 'www.amanecertransportation.com'],
     proxy: {
       '/api': 'http://localhost:3001',
     },
